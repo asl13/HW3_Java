@@ -10,54 +10,57 @@ public class AvgNumber {
         double lastNum = 0;
 
         while (firstNum <= 0) {
-            System.out.print("Ââåäèòå íà÷àëüíîå ÷èñëî (áîëüøå íóëÿ): ");
+            System.out.print("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ (Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½ÑƒÐ»Ñ): ");
             firstNum = getNum.nextInt();
         }
         while (lastNum <= firstNum) {
-            System.out.print("Ââåäèòå êîíå÷íîå ÷èñëî (áîëüøå íà÷àëüíîãî): ");
+            System.out.print("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð½ÐµÑ‡Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ (Ð±Ð¾Ð»ÑŒÑˆÐµ Ð½Ð°Ñ‡Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾): ");
             lastNum = getNum.nextInt();
         }
 
         System.out.println("");
-        System.out.println("Äèàïàçîí ÷èñåë: îò " + firstNum + " äî " + lastNum);
+        System.out.println("Ð”Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½ Ñ‡Ð¸ÑÐµÐ»: Ð¾Ñ‚ " + firstNum + " Ð´Ð¾ " + lastNum);
 
-        double sum = firstNum;
+
         double numCount = 1;
+        double evenNumCount = 1;
         double firstEvenNum = firstNum;
         double lastEvenNum = lastNum;
-        double evenNumCount = 1;
+        double sum = firstNum;
+        double avg = 0;
+        double evenAvg = 0;
 
-        while (firstNum < lastNum) {
-            firstNum = ++firstNum;
-            sum = sum + firstNum;
-            numCount = ++numCount;
-        }
-        System.out.println("Ñóììà ÷èñåë äèàïàçîíà  - " + sum);
-        System.out.println("Êîëè÷åñòâî ÷èñåë äèàïàçîíà - " + numCount);
-        double avg = sum / numCount;
-        System.out.println("Ñðåäíåå àðèôìåòè÷åñêîå  - " + avg);
-
-        while (firstEvenNum < lastEvenNum && firstEvenNum % 2 != 0) {
+        if (firstEvenNum < lastEvenNum && firstEvenNum % 2 != 0) {
             firstEvenNum = ++firstEvenNum;
         }
-        System.out.println("");
-
         if (lastEvenNum % 2 != 0) {
             lastEvenNum = --lastEvenNum;
         }
-        System.out.println("Äèàïàçîí ÷åòíûõ ÷èñåë: îò " + firstEvenNum + " äî " + lastEvenNum);
-
         double evenSum = firstEvenNum;
+
+        while (firstNum < lastNum) {
+            firstNum = ++firstNum;
+            sum += firstNum;
+            numCount = ++numCount;
+            avg = sum / numCount;
+        }
+        System.out.println("Ð¡ÑƒÐ¼Ð¼Ð° Ñ‡Ð¸ÑÐµÐ» Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°  - " + sum);
+        System.out.println("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‡Ð¸ÑÐµÐ» Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð° - " + numCount);
+        System.out.println("Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ  - " + avg);
+        System.out.println("");
+
+        System.out.println("Ð”Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½ Ñ‡ÐµÑ‚Ð½Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ»: Ð¾Ñ‚ " + firstEvenNum + " Ð´Ð¾ " + lastEvenNum);
+
         while (firstEvenNum < lastEvenNum) {
             firstEvenNum = firstEvenNum + 2;
-            evenSum = evenSum + firstEvenNum;
+            evenSum += firstEvenNum;
             evenNumCount = ++evenNumCount;
+            evenAvg = evenSum / evenNumCount;
         }
 
-        double evenAvg = evenSum / evenNumCount;
-        System.out.println("Ñóììà ÷åòíûõ ÷èñåë äèàïàçîíà  - " + evenSum);
-        System.out.println("Êîëè÷åñòâî ÷åòíûõ ÷èñåë â äèàïàçîíå - " + evenNumCount);
-        System.out.println("Ñðåäíåå àðèôìåòè÷åñêîå ÷åòíûõ ÷èñåë - " + evenAvg);
+        System.out.println("Ð¡ÑƒÐ¼Ð¼Ð° Ñ‡ÐµÑ‚Ð½Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ» Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°  - " + evenSum);
+        System.out.println("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‡ÐµÑ‚Ð½Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ» Ð² Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ðµ - " + evenNumCount);
+        System.out.println("Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ Ñ‡ÐµÑ‚Ð½Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ» - " + evenAvg);
 
     }
 }
