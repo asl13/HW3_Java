@@ -7,24 +7,25 @@ public class Main_Person {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Введите имя: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
         String name = input.nextLine();
 
-        System.out.print("Введите отчество: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ: ");
         String middleName = input.nextLine();
 
-        System.out.print("Введите фамилию: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ");
         String familyName = input.nextLine();
 
-        System.out.print("Введите возраст: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РІРѕР·СЂР°СЃС‚: ");
         int age = input.nextInt();
-
 
         Person person1 = new Person(name, middleName, familyName, age);
 
+        person1.setAge(0);
+
         int birthYear = person1.getBirthYear(age);
 
-        System.out.println("ФИО: " + person1 + " | Год рождения: " + (birthYear - 1) + " или " + birthYear);
+        System.out.println("Р¤РРћ: " + person1 + " | Р“РѕРґ СЂРѕР¶РґРµРЅРёСЏ: " + (birthYear - 1) + " РёР»Рё " + birthYear);
 
     }
 }

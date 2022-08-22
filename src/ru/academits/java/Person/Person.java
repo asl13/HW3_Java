@@ -50,11 +50,13 @@ public class Person {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age > 0) {
+            this.age = age;
+        }
     }
 
     @Override
     public String toString() {
-        return name + " " + middleName + " " + familyName + " | Возраст: " + age;
+        return name + " " + middleName + " " + familyName + " | Р’РѕР·СЂР°СЃС‚: " + age;
     }
 }
