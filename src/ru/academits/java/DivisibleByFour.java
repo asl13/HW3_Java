@@ -2,22 +2,20 @@ package ru.academits.java;
 
 public class DivisibleByFour {
 
-    public static double divideByFour(double x) {
-        return x % 4;
-    }
-
-    public static void main(String[] args) {
-
-        int firstNum = 100;
-        int lastNum = 1;
-
-        System.out.println("×èñëà, êðàòíûå 4-ì, èç äèàïàçîíà îò " + firstNum + " äî " + lastNum + " :");
-        for (double x = firstNum; x >= lastNum; --x) {
-            double dividedNum = divideByFour(x);
-            if (dividedNum == 0) {
-                System.out.println(x);
-            }
+    public static boolean divideByFour(int x) {
+        if (x % 4 == 0) {
+            return true;
+        } else {
+            return false;
         }
     }
-}
+        public static void main (String[]args){
 
+            System.out.println("Ð§Ð¸ÑÐ»Ð°, ÐºÑ€Ð°Ñ‚Ð½Ñ‹Ðµ 4-Ð¼, Ð¸Ð· Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð° Ð¾Ñ‚ 100 Ð´Ð¾ 1 :");
+            for (int x = 100; x >= 1; --x) {
+                if (divideByFour(x)) {
+                    System.out.println(x);
+                }
+            }
+        }
+}
