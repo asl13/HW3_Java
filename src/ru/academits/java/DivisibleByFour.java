@@ -3,11 +3,7 @@ package ru.academits.java;
 public class DivisibleByFour {
 
     public static boolean divideByFour(int x) {
-        if (x % 4 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x % 4 == 0;
     }
 
     public static void main(String[] args) {

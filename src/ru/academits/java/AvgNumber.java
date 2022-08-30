@@ -21,46 +21,27 @@ public class AvgNumber {
         System.out.println("");
         System.out.println("Диапазон чисел: от " + firstNum + " до " + lastNum);
 
+        double numCount = 0;
+        double evenNumCount = 0;
+        double sum = 0;
+        double evenSum = 0;
 
-        double numCount = 1;
-        double evenNumCount = 1;
-        double firstEvenNum = firstNum;
-        double lastEvenNum = lastNum;
-        double sum = firstNum;
-        double avg = 0;
-        double evenAvg = 0;
-
-        if (firstEvenNum < lastEvenNum && firstEvenNum % 2 != 0) {
-            firstEvenNum = ++firstEvenNum;
-        }
-        if (lastEvenNum % 2 != 0) {
-            lastEvenNum = --lastEvenNum;
-        }
-        double evenSum = firstEvenNum;
-
-        while (firstNum < lastNum) {
-            firstNum = ++firstNum;
-            sum += firstNum;
+        for (double i = firstNum; i <= lastNum; ++i) {
             numCount = ++numCount;
-            avg = sum / numCount;
+            sum = sum + i;
+            if (i % 2 == 0) {
+                evenNumCount = ++evenNumCount;
+                evenSum = evenSum + i;
+            }
         }
+
         System.out.println("Сумма чисел диапазона  - " + sum);
         System.out.println("Количество чисел диапазона - " + numCount);
-        System.out.println("Среднее арифметическое  - " + avg);
+        System.out.println("Среднее арифметическое  - " + (sum/numCount));
         System.out.println("");
-
-        System.out.println("Диапазон четных чисел: от " + firstEvenNum + " до " + lastEvenNum);
-
-        while (firstEvenNum < lastEvenNum) {
-            firstEvenNum = firstEvenNum + 2;
-            evenSum += firstEvenNum;
-            evenNumCount = ++evenNumCount;
-            evenAvg = evenSum / evenNumCount;
-        }
-
         System.out.println("Сумма четных чисел диапазона  - " + evenSum);
         System.out.println("Количество четных чисел в диапазоне - " + evenNumCount);
-        System.out.println("Среднее арифметическое четных чисел - " + evenAvg);
+        System.out.println("Среднее арифметическое четных чисел - " + (evenSum/evenNumCount));
 
     }
 }
